@@ -1,0 +1,7 @@
+td.expected-date {
+    background-color: rgb(100, 255, 71);
+}
+
+td.unexpected-date {
+    background-color: rgb(255, 105, 97);
+}
