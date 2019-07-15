@@ -18,8 +18,10 @@ const expectedDates = [
     previousFriday.format("MM/DD/YYYY")
 ];
 
+const currentYear = moment().year();
+const xPath = '//td[@align="right"][contains(text(),"' + currentYear + '")]';
 const xPathResult = document.evaluate(
-    '//td[@align="right"][contains(text(),"2019")]',
+    xPath,
     document,
     null,
     XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
