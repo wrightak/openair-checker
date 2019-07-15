@@ -4,11 +4,11 @@
 
 'use strict';
 
-const previousMonday = moment().day() >= 0 ? moment().day(-6) : moment.day(1);
-const previousTuesday = moment().day() >= 0 ? moment().day(-5) : moment.day(2);
-const previousWednesday = moment().day() >= 0 ? moment().day(-4) : moment.day(3);
-const previousThursday = moment().day() >= 0 ? moment().day(-3) : moment.day(4);
-const previousFriday = moment().day() >= 0 ? moment().day(-2) : moment.day(5);
+const previousMonday = moment().day() < 5 ? moment().day(-6) : moment.day(1);
+const previousTuesday = moment().day() < 5 ? moment().day(-5) : moment.day(2);
+const previousWednesday = moment().day() < 5 ? moment().day(-4) : moment.day(3);
+const previousThursday = moment().day() < 5 ? moment().day(-3) : moment.day(4);
+const previousFriday = moment().day() < 5 ? moment().day(-2) : moment.day(5);
 
 const expectedDates = [
     previousMonday.format("MM/DD/YYYY"),
