@@ -1,10 +1,10 @@
 # openair-checker
 
-Chrome extension checks the dates on submitted timesheets to make sure they are what you'd expect. Specifically, from Friday to the following Thursday, timesheets containing dates from the most recent Monday to Friday are expected.
+Chrome extension that checks the dates on submitted timesheets to make sure they are what you'd expect. Specifically, from Friday to the following Thursday, timesheets containing dates from the most recent Monday to Friday are expected.
 
 If expected dates are in the timesheet, they're highlighted in green. If they are unexpected, they turn red.
 
-To install, 
+To install
 
 1. Download openair_checker.zip from the releases tab
 2. Unzip it
