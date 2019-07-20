@@ -1,6 +1,6 @@
 {
   "name": "OpenAir Checker",
-  "version": "0.1",
+  "version": "0.3",
   "description": "Checks the dates on your OpenAir time sheet. Expected dates are highlighted green, unexpected red.",
   "permissions": ["https://www.openair.com/*"],
   "content_scripts": [
