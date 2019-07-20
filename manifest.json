@@ -5,7 +5,7 @@
   "permissions": ["https://www.openair.com/*"],
   "content_scripts": [
     {
-      "matches": ["https://*.openair.com/*submit*"],
+      "matches": ["https://*.openair.com/*"],
       "js": ["moment.js", "contentScript.js"],
       "css": ["highlight.css"]
     }
