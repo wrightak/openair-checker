@@ -13,7 +13,7 @@ if (isSubmittedTimesheet.booleanValue) {
 }
 
 function checkTimesheet() {
-    const currentYear = moment().year();
+    const currentYear = moment().year().toString().slice(-2);
     const dateCellXPath = '//td[@align="right"][contains(text(),"' + currentYear + '")]';
     const dateCellXpathResult = document.evaluate(
         dateCellXPath,
@@ -26,28 +26,32 @@ function checkTimesheet() {
     for (let i = 0; i < dateCellXpathResult.snapshotLength; i++) {
         const element = dateCellXpathResult.snapshotItem(i);
 
-        const formats = [
+        const monthDayFormats = [
             "MM-DD-YYYY",
             "MM/DD/YYYY",
             "MM-DD-YY",
             "MM/DD/YY",
             "MMM/DD/YYYY",
+            "YYYY-MM-DD",
+            "YYYY.MM.DD",
+            "YY-MMM-DD",
+            "YYYY-MMM-DD",
+        ];
+
+        const dayMonthFormats = [
             "DD-MM-YYYY",
             "DD-MM-YY",
             "DD.MM.YY",
             "DD.MM.YYYY",
             "DD/MM/YY",
             "DD/MM/YYYY",
-            "YYYY-MM-DD",
-            "YYYY.MM.DD",
             "DD-MMM-YY",
             "DD-MMM-YYYY",
-            "YY-MMM-DD",
-            "YYYY-MMM-DD",
         ];
 
-        let date = moment(element.textContent, formats);
-        if (dateIsExpected(date)) {
+        let possibleDate1 = moment(element.textContent, monthDayFormats);
+        let possibleDate2 = moment(element.textContent, dayMonthFormats);
+        if (dateIsExpected(possibleDate1) || dateIsExpected(possibleDate2)) {
             element.setAttribute('class', 'expected-date');
         } else {
             element.setAttribute('class', 'unexpected-date');
