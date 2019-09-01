@@ -14,7 +14,7 @@ if (isSubmittedTimesheet.booleanValue) {
 
 function checkTimesheet() {
     const currentYear = moment().year().toString().slice(-2);
-    const dateCellXPath = '//td[@align="right"][contains(text(),"' + currentYear + '")]';
+    const dateCellXPath = '//td[@align="right"][contains(text(),"' + currentYear + '")][not(contains(.,"%"))]';
     const dateCellXpathResult = document.evaluate(
         dateCellXPath,
         document,
